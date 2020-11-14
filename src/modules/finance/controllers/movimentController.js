@@ -58,7 +58,9 @@ class MovimentController {
 
     const finance = await movimentRemove.execute(user_id, moviment_id);
 
-    return response.json(finance);
+    if (finance) return response.json(finance);
+
+    return response.status(200).send();
   }
 }
 
